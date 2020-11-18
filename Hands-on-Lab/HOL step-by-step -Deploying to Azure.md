@@ -7,8 +7,9 @@ Oct 2020
 <br />
 
 **Contents**
-- [Exercise 1: 手動トリガーのワークフローによるサーバーの展開](#exercise-1-手動トリガーのワークフローによるサーバーの展開)
-- [Exercise 2: イベントをトリガーにしたワークフローによるサーバーの展開](#exercise-2-イベントをトリガーにしたワークフローによるサーバーの展開)
+- [Exercise 1: Azure Resource Manager テンプレートによるリソースの展開](#exercise-1-azure-resource-manager-テンプレートによるリソースの展開)
+- [Exercise 2: 手動トリガーのワークフローによるサーバーの展開](#exercise-2-手動トリガーのワークフローによるサーバーの展開)
+- [Exercise 3: イベントをトリガーにしたワークフローによるサーバーの展開](#exercise-3-イベントをトリガーにしたワークフローによるサーバーの展開)
 
 <br />
 
@@ -26,12 +27,20 @@ Azure Resource Manager (ARM) テンプレートを使用することで Azure �
 <br />
 
 ### **事前準備**
-- GitHub の Organization を作成し、メンバーを追加
-  - Organization の作成  
-  <https://docs.github.com/ja/enterprise-server@2.19/admin/user-management/creating-organizations>
-  - Organization へのメンバーの追加  
-  <https://docs.github.com/ja/enterprise-server@2.19/github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization>
-- ワークショップで使用するリポジトリを Organiation に fork
+- 環境の準備
+  -  Visual Studio Code のインストール  
+  <https://azure.microsoft.com/ja-jp/products/visual-studio-code/>
+  - Azure Resource Manager (ARM) Tools のインストール  
+  <https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools>
+  - Japanese Language Pack for Visual Studio Code のインストール（日本語化する場合）  
+  <https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja>
+  - Git のインストール  
+  <https://git-scm.com/>
+  - Azure CLI のインストール  
+  <https://docs.microsoft.com/ja-jp/cli/azure/install-azure-cli>
+  - GitHub アカウントの作成  
+  <https://github.com/>
+- ワークショップで使用するリポジトリを fork
   - ワークショップで使用するリポジトリ  
   <https://github.com/hiroyay-ms/Deploying-to-Azure-Hands-on-Lab>
   - リポジトリをフォークする  
@@ -42,7 +51,34 @@ Azure Resource Manager (ARM) テンプレートを使用することで Azure �
 
 <br />
 
-# **Exercise 1: 手動トリガーのワークフローによるサーバーの展開**
+# **Exercise 1: Azure Resource Manager テンプレートによるリソースの展開**
+Azure Resource Manager (ARM) テンプレートを作成し、Azure リソースを展開します。  
+ARM テンプレートは、複数リソースを展開する際の再利用性を高めるために入力パラメーターを別ファイルで管理できるようにします。
+
+## **Task 1**: Azure Resource Manager テンプレートによるストレージ アカウントの展開
+## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
+
+<br />
+
+## **criteria**
+- 作成した ARM テンプレートを利用しストレージ アカウントを展開できること
+- ARM テンプレートのパラメーターはパラメーター ファイルで指定すること
+
+<br />
+
+### **参考情報**
+- **ARM テンプレートの構造と構文について**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/template-syntax>
+- **Visual Studio Code を使用して ARM テンプレートを作成する**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code?tabs=CLI>
+- **Resource Manager パラメーター ファイルを作成する**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/parameter-files>
+- **ARM テンプレートと Azure CLI でリソースをデプロイする**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli>
+
+<br />
+
+# **Exercise 2: 手動トリガーのワークフローによるサーバーの展開**
 Azure Resource Manager (ARM) テンプレートが保存されている GitHub リポジトリにワークフローを作成し、既存の仮想ネットワークに仮想マシンを展開します。
 
 ## **Task 1**: サーバーの展開に使用する資格情報の構成
@@ -57,7 +93,6 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 
 ## **criteria**
 - GitHub Actions で仮想マシンを展開するワークフローが作成されていること
-- 仮想マシンの展開に使用する ARM テンプレートのパラメーターはパラメーター ファイルで指定すること
 - ワークフローは手動で実行でき、実行時に Resource Group 名を指定できること
 
 <br />
@@ -71,20 +106,17 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 <https://docs.github.com/ja/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions>
 - **GitHub Actions を使用した Azure Resource Manager テンプレートのデプロイ**  
 <https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-github-actions>
-- **ARM テンプレートの構造と構文について**  
-<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/template-syntax>
-- **Resource Manager パラメーター ファイルを作成する**  
-<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/parameter-files>
-- **ARM テンプレートと Azure CLI でリソースをデプロイする**  
-<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli>
+
 - **Create an Azure service principal with th Azure CLI**  
 <https://docs.microsoft.com/ja-jp/cli/azure/create-an-azure-service-principal-azure-cli>
 - **Encrypted secrets**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/reference/encrypted-secrets>
+- **Azure CLI Action**  
+<https://github.com/marketplace/actions/azure-cli-action>
 
 <br />
 
-# **Exercise 2: イベントをトリガーにしたワークフローによるサーバーの展開**
+# **Exercise 3: イベントをトリガーにしたワークフローによるサーバーの展開**
 Azure Resource Manager (ARM) テンプレートが保存されている GitHub リポジトリにワークフローを作成し、Azure リソースを展開します。  
 展開する Azure リソースは、「リソース グループ」「仮想ネットワーク」「仮想マシン」の3種類です。  
 Azure リソースを展開するデータセンターは既存システムが展開されているペアのリージョンを選択してください。  
