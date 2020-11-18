@@ -7,9 +7,9 @@ Oct 2020
 <br />
 
 **Contents**
-- [Exercise 1: Azure Resource Manager テンプレートによるリソースの展開](#exercise-1-azure-resource-manager-テンプレートによるリソースの展開)
+- [Exercise 1: Azure Resource Manager テンプレートの使用](#exercise-1-azure-resource-manager-テンプレートの使用)
 - [Exercise 2: 手動トリガーのワークフローによるサーバーの展開](#exercise-2-手動トリガーのワークフローによるサーバーの展開)
-- [Exercise 3: イベントをトリガーにしたワークフローによるサーバーの展開](#exercise-3-イベントをトリガーにしたワークフローによるサーバーの展開)
+- [Exercise 3: イベント トリガーのワークフローによるサーバーの展開](#exercise-3-イベント-トリガーのワークフローによるサーバーの展開)
 
 <br />
 
@@ -51,7 +51,7 @@ Azure Resource Manager (ARM) テンプレートを使用することで Azure �
 
 <br />
 
-# **Exercise 1: Azure Resource Manager テンプレートによるリソースの展開**
+# **Exercise 1: Azure Resource Manager テンプレートの使用**
 Azure Resource Manager (ARM) テンプレートを作成し、Azure リソースを展開します。  
 ARM テンプレートは、複数リソースを展開する際の再利用性を高めるために入力パラメーターを別ファイルで管理できるようにします。
 
@@ -116,7 +116,7 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 
 <br />
 
-# **Exercise 3: イベントをトリガーにしたワークフローによるサーバーの展開**
+# **Exercise 3: イベント トリガーのワークフローによるサーバーの展開**
 Azure Resource Manager (ARM) テンプレートが保存されている GitHub リポジトリにワークフローを作成し、Azure リソースを展開します。  
 展開する Azure リソースは、「リソース グループ」「仮想ネットワーク」「仮想マシン」の3種類です。  
 Azure リソースを展開するデータセンターは既存システムが展開されているペアのリージョンを選択してください。  
