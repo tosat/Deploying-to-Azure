@@ -56,6 +56,31 @@ Azure Resource Manager (ARM) テンプレートを作成し、Azure リソース
 ARM テンプレートは、複数リソースを展開する際の再利用性を高めるために入力パラメーターを別ファイルで管理できるようにします。
 
 ## **Task 1**: Azure Resource Manager テンプレートによるストレージ アカウントの展開
+
+<br />
+
+### Visual Studio Code を使用した Azure Resource Manager テンプレートの作成
+1. 「File」メニューの「Open Folder」をクリック
+
+    <img src="images/1-1-open-folder.png" width="300" />
+
+2. 任意の作業フォルダを選択し「フォルダーの選択」をクリック
+
+    <img src="images/1-2-select-folder.png" width="300" />  
+
+    画面左の Explorer に選択したフォルダが表示
+3. 「New File」アイコンをクリック
+
+    <img src="images/1-3-create-new-file.png" width="300" />
+
+4. 「deploy-to-storage.json」と入力し、Enter キーを押下
+
+    <img src="images/1-4-create-json-file.png" width="300" />  
+
+    エディターで作成した .json ファイルが表示
+
+<br />
+
 ## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
 
 <br />
