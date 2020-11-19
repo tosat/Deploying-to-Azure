@@ -203,7 +203,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 2. variables セクションでテンプレート内で使用する変数を定義
 
-    <img src="images/1-2-variables.png" width="600" />
+    <img src="images/1-2-variables.png" width="900" />
 
     ＊ARM テンプレート内では関数の使用が可能
 
@@ -262,7 +262,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 8. 展開が終了後、リソースに移動し内容を確認
 
-    <img src="images/1-10-deploy-within-portal.png" with="700" />
+    <img src="images/1-10-deploy-within-portal.png" width="700" />
 <br />
 
 ## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
