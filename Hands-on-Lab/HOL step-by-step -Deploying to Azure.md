@@ -70,23 +70,23 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     表示される候補から "**Resource Group**" を選択
 
-    <img src="images/1-2-create-resource-group.png" width="400" />
+    <img src="images/1-2-create-resource-group.png" width="500" />
 
 4. "**作成**" をクリック
 
-    <img src="images/1-3-create-resource-group.png" width="300" />
+    <img src="images/1-3-create-resource-group.png" width="400" />
 
 5. "**リソース グループ名**" を入力し、"**リージョン**" を選択
 
     "**確認および作成**" をクリック
 
-    <img src="images/1-4-create-resource-group.png" width="600" />
+    <img src="images/1-4-create-resource-group.png" width="700" />
 
 6. 事前検証に成功したことを確認し "**作成**" をクリック
 
 7. リソース グループが正常に作成されることを確認
 
-    <img src="images/1-5-create-resource-group.png" width="300" />
+    <img src="images/1-5-create-resource-group.png" width="400" />
 
 ### Visual Studio Code を使用した Azure Resource Manager テンプレートの作成
 1. Explorer（画面左の一番上のアイコン）の "**Open Folder**" をクリック
@@ -136,15 +136,15 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     - location: **[resourceGroup().location]**　展開するリソース グループと同じリージョンに配置
 
-    - kind: **StorageV2** （Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage）
+    - kind: **StorageV2** (Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage)
 
     - sku:
 
       - name: **Standard_LRS**
 
-        （Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Standard_GZRS, Standard_RAGZRS, Premium_LRS, Premium_ZRS）
+        (Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Standard_GZRS, Standard_RAGZRS, Premium_LRS, Premium_ZRS)
 
-      - tier: **Standard**　（Standard or Premium）
+      - tier: **Standard**　(Standard or Premium)
 
 8. "**File**" メニューの "**Save**" をクリックし、ファイルを保存
 
@@ -168,6 +168,8 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 4. 以下のコマンドを実行
 
     **az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json**
+
+    ＊{resourceGroup} には前の手順で作成したリソース グループ名を指定
 
 5. 実行が完了したことを確認し、Azure ポータルで作成したストレージ アカウントを確認
 
