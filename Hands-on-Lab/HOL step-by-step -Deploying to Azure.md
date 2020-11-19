@@ -153,7 +153,12 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     <img src="images/1-1-run-command.png" width="600" />
 
-2. ターミナル ウィンドウで "**az login**" コマンドを実行
+2. ターミナル ウィンドウで Azure へのログイン コマンドを実行
+
+
+    ```Azure CLI
+    az login
+    ```
 
     <img src="images/1-2-run-command.png" width="400" />
 
@@ -167,7 +172,9 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 4. 以下のコマンドを実行
 
-    **az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json**
+    ```Azure CLI
+    az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json
+    ```
 
     ＊{resourceGroup} には前の手順で作成したリソース グループ名を指定
 
