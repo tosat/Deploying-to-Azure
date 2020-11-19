@@ -116,7 +116,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     <img src="images/1-6-create-arm-template.png" width="700" />
 
-6. resources 要素内で改行し "**storage**" と入力
+6. resources セクション内で改行し "**storage**" と入力
 
     表示される候補より "**arm-storage**" を選択
 
@@ -186,6 +186,85 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 <br />
 
+### リソース作成時に指定する項目のパラメーター化
+
+1. parameters セクションにパラメーターを追加
+
+    <img src="images/1-1-parameters.png" width="500" />
+
+    - **type**: 必須、パラメーター値の型  
+    string, securestring, int, bool, object, secureObject, array
+
+    - **defaultValue**: 既定値
+
+    - **allowedValues**: パラメーターに指定できる値の配列
+
+    - **description**: ポータルを通じてユーザーに表示されるパラメーターの説明
+
+2. variables セクションでテンプレート内で使用する変数を定義
+
+    <img src="images/1-2-variables.png" width="600" />
+
+    ＊ARM テンプレート内では関数の使用が可能
+
+    storageSku パラメーターに Standard 文字列が含まれている場合は Stanadrd を、含まれない場合は Premium を格納
+
+3. resources セクションでパラメーター、変数を指定
+
+    <img src="images/1-4-resources.png" width="600" />
+
+    ＊パラメーターや変数の入力時も IntelliSense で候補を表示
+    <img src="images/1-3-resources.png" width="600" />
+
+### Azure Resource Manager テンプレートと Azure ポータルによる展開
+
+1. ブラウザーで [Azure ポータル](https://portal.azure.com) を表示
+
+2. トップページの検索バーに **カスタム テンプレート** と入力
+
+    表示される候補より **カスタム テンプレートのデプロイ** を選択
+
+    <img src="images/1-1-deploy-within-portal.png" width="800" />
+
+3. カスタム テンプレートからのデプロイ画面が表示
+
+    **エディターで独自のテンプレートを作成する** をクリック
+
+    <img src="images/1-2-deploy-within-portal.png" width="500" />
+
+4. テンプレートの編集画面が表示
+
+    **ファイルの読み込み** をクリックし、作成した ARM テンプレートを選択
+
+    <img src="images/1-3-deploy-within-portal.png" width="500" />
+
+5. エディターに作成したファイルの内容が表示
+
+    **保存** をクリック
+
+    <img src="images/1-4-deploy-within-portal.png" width="900" />
+
+6. ストレージ アカウント名、レプリケーションの種類、タグを指定
+
+    **確認および作成** をクリック
+
+    <img src="images/1-5-deploy-within-portal.png" width="700" />
+
+    ＊パラメーターの説明として description に記載した内容が表示
+
+    <img src="images/1-7-deploy-within-portal.png" width="500" />
+
+    ＊レプリケーションの種類は許可した値のみ選択可
+
+    <img src="images/1-6-deploy-within-portal.png" width="500" />
+
+7. 検証に成功したことを確認し **作成** をクリック
+
+8. 展開が終了後、リソースに移動し内容を確認
+
+    <img src="images/1-10-deploy-within-portal.png" with="700" />
+<br />
+
 ## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
 
 <br />
@@ -207,6 +286,8 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 <https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli>
 - **Microsoft.Storage storageAccounts template reference**  
 <https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/2019-06-01/storageaccounts>
+- **ARM テンプレート関数**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/template-functions>
 
 <br />
 
