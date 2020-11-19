@@ -59,25 +59,121 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 <br />
 
+### リソース グループの作成
+1. ブラウザを起動し Azure Portal（<https://portal.azure.com>）へアクセス
+
+2. "**+リソースの作成**" をクリック
+
+    <img src="images/1-1-create-resource-group.png" width="100" />
+
+3. 新規リソースの作成画面の検索ボックスに "**resource group**" と入力
+
+    表示される候補から "**Resource Group**" を選択
+
+    <img src="images/1-2-create-resource-group.png" width="400" />
+
+4. "**作成**" をクリック
+
+    <img src="images/1-3-create-resource-group.png" width="300" />
+
+5. "**リソース グループ名**" を入力し、"**リージョン**" を選択
+
+    "**確認および作成**" をクリック
+
+    <img src="images/1-4-create-resource-group.png" width="600" />
+
+6. 事前検証に成功したことを確認し "**作成**" をクリック
+
+7. リソース グループが正常に作成されることを確認
+
+    <img src="images/1-5-create-resource-group.png" width="300" />
+
 ### Visual Studio Code を使用した Azure Resource Manager テンプレートの作成
-1. 「File」メニューの「Open Folder」をクリック
+1. Explorer（画面左の一番上のアイコン）の "**Open Folder**" をクリック
 
-    <img src="images/1-1-open-folder.png" width="300" />
+    <img src="images/1-1-open-folder.png" width="500" />
 
-2. 任意の作業フォルダを選択し「フォルダーの選択」をクリック
+2. 任意の作業フォルダを選択し "**フォルダーの選択**" をクリック
 
-    <img src="images/1-2-select-folder.png" width="300" />  
+    <img src="images/1-2-select-folder.png" width="600" />  
 
     画面左の Explorer に選択したフォルダが表示
-3. 「New File」アイコンをクリック
+3. "**New File**" アイコンをクリック
 
-    <img src="images/1-3-create-new-file.png" width="300" />
+    <img src="images/1-3-create-new-file.png" width="500" />
 
-4. 「deploy-to-storage.json」と入力し、Enter キーを押下
+4. "**deploy-storage.json**" と入力し、Enter キーを押下
 
-    <img src="images/1-4-create-json-file.png" width="300" />  
+    <img src="images/1-4-create-json-file.png" width="500" />  
 
     エディターで作成した .json ファイルが表示
+
+5. "**arm**" と入力すると候補が表示されるので "**arm!**" を選択
+
+    <img src="images/1-5-create-arm-template.png" width="800" />
+
+    ARM テンプレートの雛形が展開され表示
+
+    <img src="images/1-6-create-arm-template.png" width="700" />
+
+6. resources 要素内で改行し "**storage**" と入力
+
+    表示される候補より "**arm-storage**" を選択
+
+    <img src="images/1-7-create-arm-template.png" width="700" />
+
+    ストレージ アカウントを展開するための雛形が挿入
+
+    <img src="images/1-8-create-arm-template.png" width="700" />
+
+7. テンプレートを編集
+
+    <img src="images/1-9-create-arm-template.png" width="600">
+
+    - name: （任意）3 ～ 24 文字で英語の小文字と数字の組み合わせ
+
+    - tags: 複数指定可能
+
+    - location: **[resourceGroup().location]**　展開するリソース グループと同じリージョンに配置
+
+    - kind: **StorageV2** （Storage, StorageV2, BlobStorage, FileStorage, BlockBlobStorage）
+
+    - sku:
+
+      - name: **Standard_LRS**
+
+        （Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Standard_GZRS, Standard_RAGZRS, Premium_LRS, Premium_ZRS）
+
+      - tier: **Standard**　（Standard or Premium）
+
+8. "**File**" メニューの "**Save**" をクリックし、ファイルを保存
+
+### Azure Resource Manager テンプレートと Azure CLI による展開
+1. "**Terminal**" メニューの "**New Terminal**" をクリック
+
+    <img src="images/1-1-run-command.png" width="600" />
+
+2. ターミナル ウィンドウで "**az login**" コマンドを実行
+
+    <img src="images/1-2-run-command.png" width="400" />
+
+3. ブラウザが起動し、サインイン情報の入力を要求
+
+    <img src="images/1-3-run-command.png" width="400" />
+
+    アカウント名、パスワードを入力し、サインインを実行
+
+    サインインが正常に完了したことを確認したところで、ブラウザを閉じ、Visual Studio Code を表示
+
+4. 以下のコマンドを実行
+
+    **az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json**
+
+5. 実行が完了したことを確認し、Azure ポータルで作成したストレージ アカウントを確認
+
+    <img src="images/1-4-run-command.png" width="700" />
+
+    ストレージ名やレプリケーション、アカウントの種類、タグが指定した設定で作成されていることを確認
 
 <br />
 
@@ -100,6 +196,25 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 <https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/parameter-files>
 - **ARM テンプレートと Azure CLI でリソースをデプロイする**  
 <https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-cli>
+- **Microsoft.Storage storageAccounts template reference**  
+<https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/2019-06-01/storageaccounts>
+
+<br />
+
+- Azure CLI Tools
+Visual Studio Code の拡張機能  
+<https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli>
+    - .azcli ファイルを作成することで Azure CLI の IntelliSense が利用可能
+
+      <img src="images/azure-cli-tools-1.png" width="400" />
+
+    - Azure にサインイン済みであればリソース グループ名の候補も表示
+
+      <img src="images/azure-cli-tools-2.png" width="500" />
+    
+    - 右クリックで表示されるメニューよりコマンドを実行
+
+      <img src="images/azure-cli-tools-3.png" width="500" />
 
 <br />
 
