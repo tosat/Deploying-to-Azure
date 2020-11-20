@@ -40,11 +40,6 @@ Azure Resource Manager (ARM) テンプレートを使用することで Azure �
   <https://docs.microsoft.com/ja-jp/cli/azure/install-azure-cli>
   - GitHub アカウントの作成  
   <https://github.com/>
-- ワークショップで使用するリポジトリを fork
-  - ワークショップで使用するリポジトリ  
-  <https://github.com/hiroyay-ms/Deploying-to-Azure-Hands-on-Lab>
-  - リポジトリをフォークする  
-  <https://docs.github.com/ja/free-pro-team@latest/github/getting-started-with-github/fork-a-repo>
 - Azure ポータルへのアクセス確認
   - Azure ポータル  
   <https://portal.azure.com>
@@ -64,71 +59,71 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 2. "**+リソースの作成**" をクリック
 
-    <img src="images/1-1-create-resource-group.png" width="100" />
+    <img src="images/E1-T1-1-1-create-resource-group.png" width="100" />
 
 3. 新規リソースの作成画面の検索ボックスに "**resource group**" と入力
 
     表示される候補から "**Resource Group**" を選択
 
-    <img src="images/1-2-create-resource-group.png" width="500" />
+    <img src="images/E1-T1-1-2-create-resource-group.png" width="500" />
 
 4. "**作成**" をクリック
 
-    <img src="images/1-3-create-resource-group.png" width="400" />
+    <img src="images/E1-T1-1-3-create-resource-group.png" width="400" />
 
 5. "**リソース グループ名**" を入力し、"**リージョン**" を選択
 
     "**確認および作成**" をクリック
 
-    <img src="images/1-4-create-resource-group.png" width="700" />
+    <img src="images/E1-T1-1-4-create-resource-group.png" width="700" />
 
 6. 事前検証に成功したことを確認し "**作成**" をクリック
 
 7. リソース グループが正常に作成されることを確認
 
-    <img src="images/1-5-create-resource-group.png" width="400" />
+    <img src="images/E1-T1-1-5-create-resource-group.png" width="400" />
 
 ### Visual Studio Code を使用した Azure Resource Manager テンプレートの作成
 1. Explorer（画面左の一番上のアイコン）の "**Open Folder**" をクリック
 
-    <img src="images/1-1-open-folder.png" width="500" />
+    <img src="images/E1-T1-2-1-open-folder.png" width="500" />
 
 2. 任意の作業フォルダを選択し "**フォルダーの選択**" をクリック
 
-    <img src="images/1-2-select-folder.png" width="600" />  
+    <img src="images/E1-T1-2-2-select-folder.png" width="600" />  
 
     画面左の Explorer に選択したフォルダが表示
 3. "**New File**" アイコンをクリック
 
-    <img src="images/1-3-create-new-file.png" width="500" />
+    <img src="images/E1-T1-2-3-create-new-file.png" width="500" />
 
 4. "**deploy-storage.json**" と入力し、Enter キーを押下
 
-    <img src="images/1-4-create-json-file.png" width="500" />  
+    <img src="images/E1-T1-2-4-create-json-file.png" width="500" />  
 
     エディターで作成した .json ファイルが表示
 
 5. "**arm**" と入力すると候補が表示されるので "**arm!**" を選択
 
-    <img src="images/1-5-create-arm-template.png" width="800" />
+    <img src="images/E1-T1-2-5-create-arm-template.png" width="800" />
 
     ARM テンプレートの雛形が展開され表示
 
-    <img src="images/1-6-create-arm-template.png" width="700" />
+    <img src="images/E1-T1-2-6-create-arm-template.png" width="700" />
 
 6. resources セクション内で改行し "**storage**" と入力
 
     表示される候補より "**arm-storage**" を選択
 
-    <img src="images/1-7-create-arm-template.png" width="700" />
+    <img src="images/E1-T1-2-7-create-arm-template.png" width="700" />
 
     ストレージ アカウントを展開するための雛形が挿入
 
-    <img src="images/1-8-create-arm-template.png" width="700" />
+    <img src="images/E1-T1-2-8-create-arm-template.png" width="700" />
 
 7. テンプレートを編集
 
-    <img src="images/1-9-create-arm-template.png" width="600">
+    <img src="images/E1-T1-2-9-create-arm-template.png" width="600">
 
     - name: （任意）3 ～ 24 文字で英語の小文字と数字の組み合わせ
 
@@ -151,7 +146,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 ### Azure Resource Manager テンプレートと Azure CLI による展開
 1. "**Terminal**" メニューの "**New Terminal**" をクリック
 
-    <img src="images/1-1-run-command.png" width="600" />
+    <img src="images/E1-T1-3-1-run-command.png" width="600" />
 
 2. ターミナル ウィンドウで Azure へのログイン コマンドを実行
 
@@ -160,11 +155,11 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
     az login
     ```
 
-    <img src="images/1-2-run-command.png" width="400" />
+    <img src="images/E1-T1-3-2-run-command.png" width="400" />
 
 3. ブラウザが起動し、サインイン情報の入力を要求
 
-    <img src="images/1-3-run-command.png" width="400" />
+    <img src="images/E1-T1-3-3-run-command.png" width="400" />
 
     アカウント名、パスワードを入力し、サインインを実行
 
@@ -180,7 +175,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 5. 実行が完了したことを確認し、Azure ポータルで作成したストレージ アカウントを確認
 
-    <img src="images/1-4-run-command.png" width="700" />
+    <img src="images/E1-T1-3-4-run-command.png" width="700" />
 
     ストレージ名やレプリケーション、アカウントの種類、タグが指定した設定で作成されていることを確認
 
@@ -190,7 +185,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 1. parameters セクションにパラメーターを追加
 
-    <img src="images/1-1-parameters.png" width="500" />
+    <img src="images/E1-T1-4-1-parameters.png" width="500" />
 
     - **type**: 必須、パラメーター値の型  
     string, securestring, int, bool, object, secureObject, array
@@ -203,7 +198,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 2. variables セクションでテンプレート内で使用する変数を定義
 
-    <img src="images/1-2-variables.png" width="900" />
+    <img src="images/E1-T1-4-2-variables.png" width="900" />
 
     ＊ARM テンプレート内では関数の使用が可能
 
@@ -211,10 +206,12 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 3. resources セクションでパラメーター、変数を指定
 
-    <img src="images/1-4-resources.png" width="600" />
+    <img src="images/E1-T1-4-4-resources.png" width="600" />
 
     ＊パラメーターや変数の入力時も IntelliSense で候補を表示
-    <img src="images/1-3-resources.png" width="600" />
+    <img src="images/E1-T1-4-3-resources.png" width="600" />
+
+4. "**File**" メニューの "**Save**" をクリックし、ファイルを保存
 
 ### Azure Resource Manager テンプレートと Azure ポータルによる展開
 
@@ -224,46 +221,101 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     表示される候補より "**カスタム テンプレートのデプロイ**" を選択
 
-    <img src="images/1-1-deploy-within-portal.png" width="800" />
+    <img src="images/E1-T1-5-1-deploy-within-portal.png" width="800" />
 
 3. カスタム テンプレートからのデプロイ画面が表示、**エディターで独自のテンプレートを作成する** をクリック
 
-    <img src="images/1-2-deploy-within-portal.png" width="500" />
+    <img src="images/E1-T1-5-2-deploy-within-portal.png" width="500" />
 
 4. テンプレートの編集画面が表示、"**ファイルの読み込み**" をクリックし、作成した ARM テンプレートを選択
 
-    <img src="images/1-3-deploy-within-portal.png" width="500" />
+    <img src="images/E1-T1-5-3-deploy-within-portal.png" width="500" />
 
 5. エディターに作成したファイルの内容が表示、"**保存**" をクリック
 
-    <img src="images/1-4-deploy-within-portal.png" width="900" />
+    <img src="images/E1-T1-5-4-deploy-within-portal.png" width="900" />
 
 6. ストレージ アカウント名、レプリケーションの種類、タグを指定し "**確認および作成**" をクリック
 
-    <img src="images/1-5-deploy-within-portal.png" width="700" />
+    <img src="images/E1-T1-5-5-deploy-within-portal.png" width="700" />
 
     ＊パラメーターの説明として description に記載した内容が表示
 
-    <img src="images/1-7-deploy-within-portal.png" width="500" />
+    <img src="images/E1-T1-5-7-deploy-within-portal.png" width="500" />
 
     ＊レプリケーションの種類は許可した値のみ選択可
 
-    <img src="images/1-6-deploy-within-portal.png" width="500" />
+    <img src="images/E1-T1-5-6-deploy-within-portal.png" width="500" />
 
 7. 検証に成功したことを確認し "**作成**" をクリック
 
 8. 展開が終了後、リソースに移動し内容を確認
 
-    <img src="images/1-10-deploy-within-portal.png" width="700" />
+    <img src="images/E1-T1-5-10-deploy-within-portal.png" width="700" />
+
 <br />
 
 ## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
 
 <br />
 
-## **criteria**
-- 作成した ARM テンプレートを利用しストレージ アカウントを展開できること
-- ARM テンプレートのパラメーターはパラメーター ファイルで指定すること
+### Visual Studio Code を使用したパラメーター ファイルの作成
+
+1. Visual Studio Code で作成した ARM テンプレートを表示
+
+2. parameters セクションの上の "**Select or create parameter file to enable full validation...**" をクリック
+
+    <img src="images/E1-T2-1-create-parameter-file.png" width="700" />
+
+3. 新規にテンプレートで指定されたすべてのパラメーターを含むパラメーター ファイルを作成
+
+    <img src="images/E1-T2-2-create-parameter-file.png" width="600" />
+
+    ＊ "**New**" を選択
+
+    <img src="images/E1-T2-3-create-parameter-file.png" width="600" />
+
+    ＊ "**All parameters**" を選択
+
+    <img src="images/E1-T2-4-create-parameter-file.png" width="500" />
+
+    ＊ファイルの保存場所を選択し "**保存**" をクリック
+
+4. 作成したパラメーター ファイルが表示
+
+    <img src="images/E1-T2-5-create-parameter-file.png" width="700" />
+
+5. パラメーターに値を指定
+
+    <img src="images/E1-T2-6-create-parameter-file.png" width="600" />
+
+    ＊// xxx のメッセージは削除
+
+    ＊storageAccountName は 3 ～ 24 の英語小文字と数字で一意となる名前にすること
+
+6. "**File**" メニューの "**Save**" にてファイルを保存
+
+7. ARM テンプレート ファイルを表示
+
+    <img src="images/E1-T2-7-create-parameter-file.png" width="500" />
+
+    ＊作成したパラメーター ファイルとマッピングされ指定した値の確認が可能
+
+### Azure CLI による展開
+
+1. "**Terminal**" メニューの "**New Terminal**" で統合ターミナルを表示
+
+2. 以下のコマンドを実行
+
+   ```Azure CLI
+   az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json --parameters deploy-storage.parameters.json
+   ```
+
+   ＊１行で入力
+
+   ＊{resourceGroup} は先の手順で作成したリソース グループ名を指定
+
+3. ブラウザで [Azure Portal](https://portal.azure.co) を開き、作成したリソースを確認
 
 <br />
 
@@ -303,11 +355,56 @@ Visual Studio Code の拡張機能
 # **Exercise 2: 手動トリガーのワークフローによるサーバーの展開**
 Azure Resource Manager (ARM) テンプレートが保存されている GitHub リポジトリにワークフローを作成し、既存の仮想ネットワークに仮想マシンを展開します。
 
-## **Task 1**: サーバーの展開に使用する資格情報の構成
+## **Task 1**: GitHub リポジトリのフォーク
+- ワークショップのリポジトリを使用する GitHub アカウントにフォーク
+
+  - ブラウザでワークショップのリポジトリを表示  
+  <https://github.com/hiroyay-ms/Deploying-to-Azure-Hands-on-Lab>
+
+
+  - ページ右上の "**fork**" をクリック
+
+    <img src="images/E2-T1-1-fork.png" width="500" />
+
+## **Task 2**: サーバーの展開に使用する資格情報の構成
 - Azure リソースを展開するために必要な権限が付与されたサービス プリンシパルの作成
+
+  - Azure CLI で "**az ad sp create-for-rbac**" コマンドを使用して作成
+
+    ```
+    az ad sp create-for-rbac --name http://{myApp} --role Contributor --scopes /subscriptions/{subscriptonId}/resourceGroups/{resourceGroup} --sdk-auth
+    ```
+
+    ＊{myApp}: 任意の名前
+
+    ＊{subscriptionId}: サブスクリプションの GUID（ Azure ポータルから取得）
+
+    ＊{resourceGroup}: リソースの展開先となるリソース グループ名を指定
+
+  - コマンド実行後に出力される JSON 情報をコピー
+<br />
+
 - GitHub シークレットとして資格情報を保存
 
-## **Task 2**: ワークフローを作成し仮想マシンを展開
+  - フォークしたリポジトリの "**Settings**" タブを選択
+
+    <img src="images/E2-T1-3-1-add-secret.png" width="800" />
+
+  - "**Secrets**" メニューの "**New repository secret**" をクリック
+
+  - 先の手順でコピーした JSON を貼り付け "**Add secret**" をクリック
+
+    <img src="images/E2-T1-3-2-add-secret.png" width="800" />
+
+    ＊Name: **AZURE_CREDENTIALS**
+
+  - シークレットの登録が完了
+
+    <img src="images/E2-T1-3-3-add-secret.png" width="600" />
+
+<br />
+
+## **Task 3**: ワークフローを作成し仮想マシンを展開
 - 仮想マシンの展開に使用する ARM テンプレートのパラメーター ファイルを作成
 - GitHub Actions のワークフローを作成
 
@@ -320,15 +417,16 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 <br />
 
 ### **参考情報**
+- **リポジトリをフォークする**  
+<https://docs.github.com/ja/free-pro-team@latest/github/getting-started-with-github/fork-a-repo>
+- **GitHub Actions を使用した Azure Resource Manager テンプレートのデプロイ**  
+<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-github-actions>
 - **GitHub Actions のワークフロー構文**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions>
 - **ワークフローをトリガーするイベント**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/reference/events-that-trigger-workflows>
 - **GitHub Actions のメタデータ構文**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions>
-- **GitHub Actions を使用した Azure Resource Manager テンプレートのデプロイ**  
-<https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-github-actions>
-
 - **Create an Azure service principal with th Azure CLI**  
 <https://docs.microsoft.com/ja-jp/cli/azure/create-an-azure-service-principal-azure-cli>
 - **Encrypted secrets**  
