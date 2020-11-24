@@ -52,8 +52,6 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 ## **Task 1**: Azure Resource Manager テンプレートによるストレージ アカウントの展開
 
-<br />
-
 ### リソース グループの作成
 1. ブラウザを起動し Azure Portal（<https://portal.azure.com>）へアクセス
 
@@ -256,8 +254,6 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 <br />
 
 ## **Task 2**: パラメーター ファイルを使用したストレージ アカウントの展開
-
-<br />
 
 ### Visual Studio Code を使用したパラメーター ファイルの作成
 
@@ -487,7 +483,7 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 
     - **Use workflow from**: ブランチを選択
 
-    - **Resource Group Name**: 入力パラメーター
+    - **Resource Group Name**: 指定した入力パラメーター
 
   - ワークフローの実行が開始
 
