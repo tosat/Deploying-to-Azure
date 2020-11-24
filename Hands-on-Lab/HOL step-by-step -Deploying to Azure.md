@@ -22,12 +22,9 @@ Oct 2020
 Azure Resource Manager (ARM) テンプレートを使用することで Azure リソースに IaC (Infrastructure as Code) を提供することができます。Azure リソースの構成をコード化することにより反復可能な一貫性のある展開が可能になり、且つリポジトリにコードを保存することで変更履歴の管理も容易に行えます。GitHub リポジトリでは、GitHub Actions を使用することでワークフローを定義し、CI/CD を実現することが可能です。  
 本ワークショップでは、GitHub を使用した ARM テンプレートの管理、ならびに GitHub Actions の Azure CLI アクションによる Azure Resource Manager (ARM) テンプレートのデプロイ方法を学習します。  
 
-### **ワークショップで使用する環境**
-
-<br />
-
 ### **事前準備**
-- 環境の準備
+
+- ローカル環境
   -  Visual Studio Code のインストール  
   <https://azure.microsoft.com/ja-jp/products/visual-studio-code/>
   - Azure Resource Manager (ARM) Tools のインストール  
@@ -38,10 +35,11 @@ Azure Resource Manager (ARM) テンプレートを使用することで Azure �
   <https://git-scm.com/>
   - Azure CLI のインストール  
   <https://docs.microsoft.com/ja-jp/cli/azure/install-azure-cli>
-  - GitHub アカウントの作成  
+- GitHub
+  - アカウントの作成  
   <https://github.com/>
-- Azure ポータルへのアクセス確認
-  - Azure ポータル  
+- Azure
+  - Azure ポータルへのアクセス  
   <https://portal.azure.com>
 
 <br />
@@ -169,7 +167,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
     az deployment group create --resource-group {resourceGroup} --template-file deploy-storage.json
     ```
 
-    ＊{resourceGroup} には前の手順で作成したリソース グループ名を指定
+    ＊**{resourceGroup}** には前の手順で作成したリソース グループ名を指定
 
 5. 実行が完了したことを確認し、Azure ポータルで作成したストレージ アカウントを確認
 
@@ -610,6 +608,9 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
     ```
 
   - ワークフローを実行
+
+    ＊事前に用意されたワークショップ環境のリソース グループを指定
+
   - [Azure ポータル](https://portal.azure.com) へ移動し作成した仮想マシンを確認
   
 <br />
