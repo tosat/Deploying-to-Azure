@@ -79,6 +79,8 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     <img src="images/E1-T1-1-5-create-resource-group.png" width="400" />
 
+<br />
+
 ### Visual Studio Code を使用した Azure Resource Manager テンプレートの作成
 1. Explorer（画面左の一番上のアイコン）の "**Open Folder**" をクリック
 
@@ -139,6 +141,8 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 8. "**File**" メニューの "**Save**" をクリックし、ファイルを保存
 
+<br />
+
 ### Azure Resource Manager テンプレートと Azure CLI による展開
 1. "**Terminal**" メニューの "**New Terminal**" をクリック
 
@@ -198,16 +202,21 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     ＊ARM テンプレート内では関数の使用が可能
 
-    storageSku パラメーターに Standard 文字列が含まれている場合は Stanadrd を、含まれない場合は Premium を格納
+    ＊storageSku パラメーターに Standard 文字列が含まれている場合は Stanadrd を、含まれない場合は Premium を格納
 
 3. resources セクションでパラメーター、変数を指定
 
     <img src="images/E1-T1-4-4-resources.png" width="600" />
 
     ＊パラメーターや変数の入力時も IntelliSense で候補を表示
+    
     <img src="images/E1-T1-4-3-resources.png" width="600" />
 
+<br />
+
 4. "**File**" メニューの "**Save**" をクリックし、ファイルを保存
+
+<br />
 
 ### Azure Resource Manager テンプレートと Azure ポータルによる展開
 
@@ -294,6 +303,8 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
     <img src="images/E1-T2-7-create-parameter-file.png" width="500" />
 
     ＊作成したパラメーター ファイルとマッピングされ指定した値の確認が可能
+
+<br />
 
 ### Azure CLI による展開
 
