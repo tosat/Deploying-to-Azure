@@ -185,7 +185,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
 1. parameters セクションにパラメーターを追加
 
-    <img src="images/E1-T1-4-1-parameters.png" width="500" />
+    <img src="images/E1-T1-4-1-parameters.png" width="600" />
 
     - **type**: 必須、パラメーター値の型  
     string, securestring, int, bool, object, secureObject, array
@@ -289,7 +289,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     <img src="images/E1-T2-6-create-parameter-file.png" width="600" />
 
-    ＊// xxx のメッセージは削除
+    ＊// TODO: Fill in parameter value のメッセージは削除
 
     ＊storageAccountName は 3 ～ 24 の英語小文字と数字で一意となる名前にすること
 
@@ -388,26 +388,234 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 
   - フォークしたリポジトリの "**Settings**" タブを選択
 
-    <img src="images/E2-T1-3-1-add-secret.png" width="800" />
+    <img src="images/E2-T2-1-add-secret.png" width="800" />
 
   - "**Secrets**" メニューの "**New repository secret**" をクリック
 
   - 先の手順でコピーした JSON を貼り付け "**Add secret**" をクリック
 
-    <img src="images/E2-T1-3-2-add-secret.png" width="800" />
+    <img src="images/E2-T2-2-add-secret.png" width="800" />
 
     ＊Name: **AZURE_CREDENTIALS**
 
   - シークレットの登録が完了
 
-    <img src="images/E2-T1-3-3-add-secret.png" width="600" />
+    <img src="images/E2-T2-3-add-secret.png" width="600" />
 
 <br />
 
-## **Task 3**: ワークフローを作成し仮想マシンを展開
-- 仮想マシンの展開に使用する ARM テンプレートのパラメーター ファイルを作成
-- GitHub Actions のワークフローを作成
+## **Task 3**: ワークフローの作成と実行の確認
+### GitHub Actions のワークフローを作成
 
+  - "**Actions**" タブへ移動し、ワークフローを作成
+
+    <img src="images/E2-T3-8-1-create-workflow.png" width="800" />
+
+    <br />
+
+    <img src="images/E2-T3-8-2-create-workflow.png" width="600" />
+
+    ＊"**Set up this workflow**" をクリック
+
+  - ワークフロー ファイル名を変更
+
+    <img src="images/E2-T3-8-3-create-workflow.png" width="600" />
+
+  - ワークフロー名を変更
+
+    ```yml
+    name: Deploy Virtual Machine
+    ```
+
+    - **name**: 任意のワークフロー名を入力
+
+  - ワークフローを手動起動でき、且つ起動時にパラメーター入力できるよう設定
+
+    ```yml
+    on: 
+      # 手動ワークフロー トリガー
+      workflow_dispath:
+        # ワークフロー実行時に使用するパラメーターを定義
+        inputs:
+          # パラメーター名
+          resourceGroupName:
+            # ワークフロー実行時に画面に表示される名前
+            description: Resource Group Name
+            # 入力を必須に指定
+            required: true
+    ```
+
+    - コード入力時に入力候補が表示
+
+      <img src="images/E2-T3-8-4-create-workflow.png" width="200" />
+
+  - ワークフローで実行するジョブを定義
+
+    ```yml
+    jobs:
+      # ジョブの名前
+      deploy-virtual-machine:
+        # ワーフローの実行環境の指定
+        runs-on: ubuntu-latest
+
+        steps:
+          # コードをチェックアウト
+          -uses: actions/checkout@v2
+
+          # スクリプトの実行（画面に指定したパラメーターの値を表示）
+          -name: Run a one-line script
+           run: echo Hello, ${{ github.event.inputs.resourceGroup }}
+    ```
+
+  - 作成したワークフローを保存
+
+    <img src="images/E2-T3-8-5-create-workflow.png" width="400" />
+
+    - .yml ファイルはリポジトリ内の **.github/workflow** に保存
+
+<br />
+
+### ワークフローの実行
+
+  - **Actions** タブへ移動し、実行するワークフローを選択
+
+    <img src="images/E2-T3-9-1-execute-workflow.png" width="350" />
+
+  - **Run Workflow** をクリック
+
+    <img src="images/E2-T3-9-2-execute-workflow.png" width="800" />
+
+    - **Use workflow from**: ブランチを選択
+
+    - **Resource Group Name**: 入力パラメーター
+
+  - ワークフローの実行が開始
+
+    <img src="images/E2-T3-9-3-execute-workflow.png" width="800" />
+
+    - クリックすると詳細な実行内容を確認可
+
+      <img src="images/E2-T3-9-4-execute-workflow.png" width="700" />
+
+      - **Run a one-line script** を展開すると、コマンドの実行状況を確認可  
+      入力したリソースグループ名が表示されることを確認
+
+<br />
+
+## **Task 4**: ワークフローを更新し仮想マシンを展開
+### 仮想マシンの展開に使用する ARM テンプレートのパラメーター ファイルを作成
+
+  - ワークショップ リポジトリのクローン
+
+    - リポジトリのページから clone URL をコピー
+
+      <img src="images/E2-T3-1-clone.png" width="400" />
+
+    - Visual Studio Code の統合ターミナルで "**git clone**" コマンドを実行
+
+      ```
+      git clone https://github.com/{GitHub Account}/Deploying-to-Azure-Hands-on-Lab.git
+      ```
+
+      ＊コマンド実行前にリポジトリのクローン先となるディレクトリへ移動
+
+      ＊{GitHub Account} にはリポジトリをフォークしたアカウント名が表示
+
+    - Git の設定
+
+       ```
+       git config --local user.email "{email}"
+       git config --local user.name "{name}"
+       ```
+
+       ＊{email}, {name} には、GitHub アカウントの情報を指定
+
+      ＊設定後、クローンしたディレクトリへ移動し "**code .**" コマンドを実行（新しいウィンドウが起動）
+    
+    - 画面左下からブランチの切替が可
+
+        <img src="images/E2-T3-2-branch.png" width="200" />
+
+        ＊"**main**" のクリックで切替
+
+  - "**deploy-vm-as-domain-member.json**" からパラメーター ファイルを作成
+
+      - "**Select or create a parameter file to enable full validation...**" をクリックしファイルを作成
+
+      - パラメーターに値を入力し保存
+
+        <img src="images/E2-T3-3-parameters.png" width="600" />
+
+        ＊// TODO: Fill in parameter value のメッセージは削除
+
+        ＊展開先の仮想ネットワークやサブネットの情報はポータルから取得
+
+        ＊サーバー名、OS などの情報は任意で指定可
+    
+  - 変更内容をリポジトリにプッシュ
+
+    - ローカル Git にコミット
+
+      <img src="images/E2-T3-4-commit.png" width="300" />
+
+      ＊コミット時に変更内容をコメントに記述
+
+      ＊ "**✓**" のクリックでコミットを実行
+
+    - GitHub リポジトリへプッシュ
+
+      <img src="images/E2-T3-5-push.png" width="500" />
+
+      ＊ "**...**" をクリックし、表示されるメニューより "**Push**" を選択
+
+    - GitHub への認証
+
+      - "**Sign in with your browser**" をクリック
+
+        <img src="images/E2-T3-6-connect-github.png" width="300" />
+
+      - ブラウザで資格情報を入力し認証を実行
+
+        <img src="images/E2-T3-7-authentication.png" width="300" />
+
+<br />
+
+### ワークフローの更新（Azure CLI アクションで仮想マシンを展開）
+
+  - ジョブの定義を変更
+
+    ```yml
+    jobs:
+      # ジョブの名前はメンバーで重複しないように指定
+      deploy-virtual-machine:
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@v2
+
+          # 登録したシークレットで Azure へログイン
+          - name: Login to Azure
+            uses: azure/login@v1
+            with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+          # Azure CLI を使用し ARM テンプレートから仮想マシンを展開
+          - name: Deploy ARM Template
+            uses: azure/CLI@v1
+            with:
+              # {parameter file} には先の手順で作成したパラメーター ファイル名を指定
+              inlineScript: |
+                az deployment group create --resource-group ${{ github.event.inputs.resourceGroupName }} --template-file ./Hands-on-Lab/templates/deploy-vm-as-domain-member.json --parameters {parameter file}
+
+          # ログアウト
+          - name: Azure logout
+            run: |
+              az logout
+    ```
+
+  - ワークフローを実行
+  - [Azure ポータル](https://portal.azure.com) へ移動し作成した仮想マシンを確認
+  
 <br />
 
 ## **criteria**
@@ -421,16 +629,18 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 <https://docs.github.com/ja/free-pro-team@latest/github/getting-started-with-github/fork-a-repo>
 - **GitHub Actions を使用した Azure Resource Manager テンプレートのデプロイ**  
 <https://docs.microsoft.com/ja-jp/azure/azure-resource-manager/templates/deploy-github-actions>
+- **Create an Azure service principal with th Azure CLI**  
+<https://docs.microsoft.com/ja-jp/cli/azure/create-an-azure-service-principal-azure-cli>
+- **Encrypted secrets**  
+<https://docs.github.com/ja/free-pro-team@latest/actions/reference/encrypted-secrets>
+- **リポジトリをクローンする**  
+<https://docs.github.com/ja/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository>
 - **GitHub Actions のワークフロー構文**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions>
 - **ワークフローをトリガーするイベント**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/reference/events-that-trigger-workflows>
 - **GitHub Actions のメタデータ構文**  
 <https://docs.github.com/ja/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions>
-- **Create an Azure service principal with th Azure CLI**  
-<https://docs.microsoft.com/ja-jp/cli/azure/create-an-azure-service-principal-azure-cli>
-- **Encrypted secrets**  
-<https://docs.github.com/ja/free-pro-team@latest/actions/reference/encrypted-secrets>
 - **Azure CLI Action**  
 <https://github.com/marketplace/actions/azure-cli-action>
 
