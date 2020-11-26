@@ -439,7 +439,7 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
     ```yml
     on: 
       # 手動ワークフロー トリガー
-      workflow_dispath:
+      workflow_dispatch:
         # ワークフロー実行時に使用するパラメーターを定義
         inputs:
           # パラメーター名
@@ -465,11 +465,11 @@ Azure Resource Manager (ARM) テンプレートが保存されている GitHub �
 
         steps:
           # コードをチェックアウト
-          -uses: actions/checkout@v2
+          - uses: actions/checkout@v2
 
           # スクリプトの実行（画面に指定したパラメーターの値を表示）
-          -name: Run a one-line script
-           run: echo Hello, ${{ github.event.inputs.resourceGroup }}
+          - name: Run a one-line script
+            run: echo Hello, ${{ github.event.inputs.resourceGroupName }}
     ```
 
   - 作成したワークフローを保存
