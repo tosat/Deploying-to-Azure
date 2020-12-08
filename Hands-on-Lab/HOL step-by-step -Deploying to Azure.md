@@ -202,7 +202,7 @@ ARM テンプレートは、複数リソースを展開する際の再利用性�
 
     ＊ARM テンプレート内では関数の使用が可能
 
-    ＊storageSku パラメーターに Standard 文字列が含まれている場合は Stanadrd を、含まれない場合は Premium を格納
+    ＊storageSku パラメーターに Standard 文字列が含まれている場合は Standard を、含まれない場合は Premium を格納
 
 3. resources セクションでパラメーター、変数を指定
 
