@@ -14,7 +14,7 @@ on:
 
 jobs:
   # ジョブの名前
-  deploy-virtual-machine:
+  deploy-virtual-machine-tosat:
     # ワーフローの実行環境の指定
     runs-on: ubuntu-latest
 
